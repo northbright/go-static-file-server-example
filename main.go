@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"os"
 	"os/exec"
 	"path"
 	"path/filepath"
-	"text/template"
 )
 
 var (
-	serverRoot       string // Absolute path of server root
-	staticFolderPath string // Absolute path of static file folder
-	faviconPath      string // Absolute path of "favicon.ico"
+	serverRoot       string // Absolute path of server root.
+	staticFolderPath string // Absolute path of static file folder.
+	faviconPath      string // Absolute path of "favicon.ico".
+	indexTmplPath    string // Absolute path of index HTML template file.
 )
 
 // serveSingleFile() serves Single Static File.
@@ -31,7 +32,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	t := template.Must(template.New("hello").Parse(indexHTMLSrc))
+	t, _ := template.ParseFiles(indexTmplPath)
 	d := struct {
 		Title   string
 		Content string
@@ -70,6 +71,8 @@ func init() {
 	staticFolderPath = path.Join(serverRoot, "./static")
 	// Get favicon.ico path.
 	faviconPath = path.Join(serverRoot, "favicon.ico")
+	// Get index template file path.
+	indexTmplPath = path.Join(serverRoot, "./templates/index.tmpl")
 }
 
 func main() {
@@ -87,21 +90,3 @@ func main() {
 		log.Fatal(err)
 	}
 }
-
-// HTML src of home("/").
-var indexHTMLSrc = `
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{.Title}}</title>
-  <meta charset="UTF-8" />
-  <link rel='stylesheet' id='style-css'  href='static/css/style.css' media='all' />
-  <script type="text/javascript" src="static/js/jquery-1.12.1.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>{{.Content}}</h1>
-  </div>
-</body>
-</html>
-`
