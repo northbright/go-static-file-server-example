@@ -1,6 +1,6 @@
 # go-static-file-server-example
 
-A golang static file server example.  
+A [Golang](http://golang.org) static file server example.  
 
 [![Build Status](https://travis-ci.org/northbright/go-static-file-server-example.svg?branch=master)](https://travis-ci.org/northbright/go-static-file-server-example)
 
