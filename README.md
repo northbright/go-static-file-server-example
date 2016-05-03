@@ -4,10 +4,10 @@
 
 A [Golang](http://golang.org) static file server example.  
 
-## Notes
+#### Notes
 * Make sure that the path passed in `http.FileServer(http.Dir("XX"))` is **ABSOLUTE**.  
 * `http.Dir("./static")` works only if `PWD` is the server root dir.
 * Use [GetCurrentExecDir](https://godoc.org/github.com/northbright/pathhelper#GetCurrentExecDir) to get absolute path of server root(current executable).
 
-## References
+#### References
 * [Serve homepage and static content from root](http://stackoverflow.com/questions/14086063/serve-homepage-and-static-content-from-root)
