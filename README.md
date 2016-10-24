@@ -1,6 +1,7 @@
 # go-static-file-server-example
 
 [![Build Status](https://travis-ci.org/northbright/go-static-file-server-example.svg?branch=master)](https://travis-ci.org/northbright/go-static-file-server-example)
+[![Go Report Card](https://goreportcard.com/badge/github.com/northbright/go-static-file-server-example)](https://goreportcard.com/report/github.com/northbright/go-static-file-server-example)
 
 A [Golang](http://golang.org) static file server example.  
 
