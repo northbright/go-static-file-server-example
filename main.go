@@ -18,14 +18,14 @@ var (
 	indexTmplPath    string // Absolute path of index HTML template file.
 )
 
-// serveSingleFile() serves Single Static File.
+// serveSingleFile serves Single Static File.
 func serveSingleFile(pattern string, filename string) {
 	http.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, filename)
 	})
 }
 
-// hello() is home handler.
+// hello is home handler.
 func hello(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
@@ -46,7 +46,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// GetCurrentExecDir() gets the current executable path.
+// GetCurrentExecDir gets the current executable path.
 // You may find more path helper functions in:
 // https://github.com/northbright/pathhelper
 func GetCurrentExecDir() (dir string, err error) {
