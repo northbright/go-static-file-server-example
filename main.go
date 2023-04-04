@@ -86,7 +86,7 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir(staticFolderPath))))
 
 	fmt.Printf("Starting server...\nstatic folder abs path: %v\n", staticFolderPath)
-	if err := http.ListenAndServe(":80", nil); err != nil {
+	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
 }

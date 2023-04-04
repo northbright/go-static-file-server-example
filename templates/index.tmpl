@@ -4,7 +4,12 @@
   <title>{{.Title}}</title>
   <meta charset="UTF-8" />
   <link rel='stylesheet' id='style-css'  href='static/css/style.css' media='all' />
-  <script type="text/javascript" src="static/js/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="static/js/hello.js"></script>
+  <script type="text/javascript">
+      window.addEventListener("load", (event) => {
+          hello();
+      });
+  </script>
 </head>
 <body>
   <div class="container">
